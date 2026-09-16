@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades y Actualizaciones - Microsoft Dynamics 365 Business Central v28 (Update 28.4)</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230F6CBD'/><text x='50%' y='65%' font-size='42' font-family='Segoe UI, sans-serif' font-weight='900' fill='%23ffffff' text-anchor='middle'>AUBA</text></svg>">
+    <style>
+        :root {
+            /* Microsoft Fluent UI 2 Core Palette */
+            --primary: #0F6CBD;
+            --primary-hover: #0B4A82;
+            --primary-tint: #EFF6FC;
+            --primary-border: #C7E0F4;
+            
+            --success: #107C41;
+            --success-bg: #DFF6DD;
+            --success-border: #9FD89F;
+            
+            --warning: #D83B01;
+            --warning-bg: #FFF4CE;
+            --warning-border: #FDE68A;
+            
+            --danger: #C50F1F;
+            --danger-bg: #FDE7E9;
+            --danger-border: #FCA5A5;
+            
+            --copilot-purple: #7C3AED;
+            --copilot-bg: #F3E8FF;
+            --copilot-border: #DDD6FE;
+            
+            --neutral-bg: #FAF9F8;
+            --card-bg: #FFFFFF;
+            --card-hover-bg: #FFFFFF;
+            
+            --text-primary: #201F1E;
+            --text-secondary: #605E5C;
+            --text-muted: #8A8886;
+            
+            --border-color: #EDEBE9;
+            --border-subtle: #F3F2F1;
+            
+            --shadow-card: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.06), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.1), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.06);
+            --shadow-nav: 0 2px 4px rgba(0, 0, 0, 0.04);
+            
+            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Segoe UI Web (West European)", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--neutral-bg);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Cabecera Ejecutiva Fluent UI */
+        header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-nav);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        .header-title-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-title-block h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+        }
+
+        .badge-version {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background-color: var(--primary-tint);
+            color: var(--primary);
+            border: 1px solid var(--primary-border);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .header-title-block p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.15rem;
+        }
+
+        /* Botón Soporte Web */
+        .support-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--neutral-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition-fast);
+        }
+
+        .support-badge:hover {
+            background-color: var(--primary-tint);
+            border-color: var(--primary-border);
+            color: var(--primary);
+        }
+
+        .support-badge .as-logo {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .support-text-container {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .support-title {
+            font-weight: 600;
+            font-size: 0.82rem;
+        }
+
+        .support-subtitle {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        /* Contenedor Principal */
+        main {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navegación por Pestañas (Fluent Pivot Style) */
+        .tabs-navigation {
+            display: flex;
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 0.35rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-card);
+            gap: 0.35rem;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.75rem 1.2rem;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: var(--text-primary);
+            background-color: var(--neutral-bg);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-tint);
+            color: var(--primary);
+            border-color: var(--primary-border);
+        }
+
+        .tab-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* Contenido de Pestañas */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Grid de Novedades */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Tarjeta de Novedad Ejecutiva (Fluent Card) */
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.4rem 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-normal);
+            position: relative;
+        }
+
+        .news-card:hover {
+            border-color: #CBD5E1;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            background-color: var(--primary-tint);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--primary-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition-fast);
+        }
+
+        .card-title-area {
+            flex: 1;
+        }
+
+        .card-title-area h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.35;
+            margin-bottom: 0.35rem;
+        }
+
+        /* Badges de Categoría */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.2rem 0.55rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-spain {
+            background-color: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FDE68A;
+        }
+
+        .badge-copilot {
+            background-color: var(--copilot-bg);
+            color: var(--copilot-purple);
+            border: 1px solid var(--copilot-border);
+        }
+
+        .badge-platform {
+            background-color: var(--primary-tint);
+            color: var(--primary);
+            border: 1px solid var(--primary-border);
+        }
+
+        .badge-mandatory {
+            background-color: var(--danger-bg);
+            color: var(--danger);
+            border: 1px solid var(--danger-border);
+        }
+
+        .badge-warning-custom {
+            background-color: var(--warning-bg);
+            color: var(--warning);
+            border: 1px solid var(--warning-border);
+        }
+
+        .card-body p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+
+        /* Glosario y Tablas IBCS */
+        .translations-section {
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .translations-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .translations-section p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .glossary-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.88rem;
+        }
+
+        .glossary-table th, .glossary-table td {
+            padding: 0.9rem 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .glossary-table th {
+            background-color: var(--neutral-bg);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .glossary-table tr:hover td {
+            background-color: rgba(15, 108, 189, 0.02);
+        }
+
+        .term-old {
+            color: var(--danger);
+            font-weight: 500;
+            text-decoration: line-through;
+        }
+
+        .term-new {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .glossary-table code {
+            background-color: #F3F2F1;
+            border: 1px solid #E1DFDD;
+            padding: 0.2rem 0.45rem;
+            border-radius: 4px;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.82rem;
+            color: #323130;
+        }
+
+        /* Banner de Formación al final */
+        .training-banner {
+            background-color: #0F6CBD;
+            color: #FFFFFF;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .training-banner h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .training-banner p {
+            max-width: 680px;
+            margin: 0 auto 1.75rem;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .training-banner .btn-main {
+            background-color: #FFFFFF;
+            color: var(--primary);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: var(--transition-fast);
+        }
+
+        .training-banner .btn-main:hover {
+            background-color: var(--primary-tint);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            border-top: 1px solid var(--border-color);
+            background-color: #FFFFFF;
+            margin-top: 3rem;
+            line-height: 1.6;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera Ejecutiva -->
+    <header>
+        <div class="header-container">
+            <div class="header-brand">
+                <img src="logo_auba.png" alt="Auba Dynamic" class="logo-img" id="auba-logo">
+                <div class="header-title-block">
+                    <div class="header-title-row">
+                        <h1>Novedades de Business Central v28</h1>
+                        <span class="badge-version">v28.4 (Wave 1)</span>
+                    </div>
+                    <p>Guía interactiva de actualizaciones funcionales y técnicas para Microsoft Dynamics 365</p>
+                </div>
+            </div>
+            <!-- Enlace Soporte Web -->
+            <a href="https://aubadcs.com" target="_blank" class="support-badge" title="Visitar Web de Auba">
+                <div class="as-logo">AS</div>
+                <div class="support-text-container">
+                    <span class="support-title">Auba Soporte</span>
+                    <span class="support-subtitle">aubadcs.com</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Navegación por pestañas Fluent Pivot -->
+        <div class="tabs-navigation">
+            <button class="tab-btn active" onclick="openTab(event, 'key-news')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"/></svg>
+                Novedades Clave (España)
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'copilot-ia')">
+                <svg fill="currentColor" fill-rule="evenodd" viewBox="0 0 24 24" style="width: 20px; height: 20px;" xmlns="http://www.w3.org/2000/svg"><title>Copilot</title><path d="M9 23l.073-.001a2.53 2.53 0 01-2.347-1.838l-.697-2.433a2.529 2.529 0 00-2.426-1.839h-.497l-.104-.002c-4.485 0-2.935-5.278-1.75-9.225l.162-.525C2.412 3.99 3.883 1 6.25 1h8.86c1.12 0 2.106.745 2.422 1.829l.715 2.453a2.53 2.53 0 002.247 1.823l.147.005.534.001c3.557.115 3.088 3.745 2.156 7.206l-.113.413c-.154.548-.315 1.089-.47 1.607l-.163.525C21.588 20.01 20.116 23 17.75 23h-8.75zm8.22-15.89l-3.856.001a2.526 2.526 0 00-2.35 1.615L9.21 15.04a2.529 2.529 0 01-2.43 1.847l3.853.002c1.056 0 1.992-.661 2.361-1.644l1.796-6.287a2.529 2.529 0 012.43-1.848z"></path></svg>
+                IA y Copilot (Agentes)
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'infrastructure')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0h19.5"/></svg>
+                Infraestructura y Rendimiento
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'lifecycle')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                Ciclo de Vida y Glosario
+            </button>
+        </div>
+
+        <!-- Pestaña 1: Novedades Clave -->
+        <div id="key-news" class="tab-content active">
+            <div class="news-grid">
+                <!-- Novedad 1 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Modo Verifactu integrado en España</h3>
+                            <span class="badge badge-spain">Localización ES</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Permite cumplir de forma 100% nativa con el reglamento Verifactu de la AEAT. Incluye envío en tiempo real, firma digital y generación de código QR oficial en facturas de venta.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 2 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6H2.25m0 0v8.25m0 0a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6m-18 0H18m0 0h1.5a.75.75 0 0 1 .75.75v.75m0 0v8.25m0 0a3 3 0 0 1-3 3H5.25"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Módulo de Gestión de Gastos</h3>
+                            <span class="badge badge-platform">Finanzas</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Llega el nuevo módulo nativo para que los empleados registren sus gastos. Permite registrar dietas (per diem), cálculo de kilometraje automático y flujos de reembolso integrados.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 3 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm2.25-4.5h.008v.008H10.5v-.008Zm0 2.25h.008v.008H10.5V13.5Zm0 2.25h.008v.008H10.5v-.008Zm2.25-4.5h.008v.008H12.75v-.008Zm0 2.25h.008v.008H12.75V13.5Zm0 2.25h.008v.008H12.75v-.008Zm2.25-4.5h.008v.008H15v-.008Zm0 2.25h.008v.008H15V13.5ZM6.75 6.75h10.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25H6.75a2.25 2.25 0 0 1-2.25-2.25V9a2.25 2.25 0 0 1 2.25-2.25Z"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Cálculo de Retenciones de IRPF</h3>
+                            <span class="badge badge-spain">Localización ES</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Automatización y cálculo de retenciones del IRPF para facturas de proveedores de forma integrada, evitando tener que configurarlo de forma manual o a través de complejos desarrollos.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 4 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52v4.5A4.5 4.5 0 0 1 14.25 14H9.75A4.5 4.5 0 0 1 5.25 9.47V4.97m0 0A48.541 48.541 0 0 0 2.25 5.49"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Impuestos para Plástico y Azúcar</h3>
+                            <span class="badge badge-spain">Legislación ES</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Cálculo nativo de impuestos especiales destinados al envasado de plástico no reutilizable y el gravamen sobre bebidas azucaradas, adaptado a la legislación del entorno español.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 5 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Autofacturas de Compra (Self-billed)</h3>
+                            <span class="badge badge-platform">Ventas / Compras</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Funcionalidad que permite emitir de forma estándar facturas de compra autofacturadas, simplificando la relación fiscal y comercial con determinados tipos de proveedores.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 6 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Integración Avanzada con Shopify</h3>
+                            <span class="badge badge-platform">Ecommerce</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Mejoras de integración que permiten asignar colecciones personalizadas de Shopify a productos de Business Central y exportar atributos avanzados basados en campos personalizados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña 2: IA y Copilot -->
+        <div id="copilot-ia" class="tab-content">
+            <div class="news-grid">
+                <!-- Novedad 7 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background-color: var(--copilot-bg); color: var(--copilot-purple); border-color: var(--copilot-border);">
+                            <svg fill="currentColor" fill-rule="evenodd" viewBox="0 0 24 24" style="width: 20px; height: 20px;" xmlns="http://www.w3.org/2000/svg"><title>Copilot</title><path d="M9 23l.073-.001a2.53 2.53 0 01-2.347-1.838l-.697-2.433a2.529 2.529 0 00-2.426-1.839h-.497l-.104-.002c-4.485 0-2.935-5.278-1.75-9.225l.162-.525C2.412 3.99 3.883 1 6.25 1h8.86c1.12 0 2.106.745 2.422 1.829l.715 2.453a2.53 2.53 0 002.247 1.823l.147.005.534.001c3.557.115 3.088 3.745 2.156 7.206l-.113.413c-.154.548-.315 1.089-.47 1.607l-.163.525C21.588 20.01 20.116 23 17.75 23h-8.75zm8.22-15.89l-3.856.001a2.526 2.526 0 00-2.35 1.615L9.21 15.04a2.529 2.529 0 01-2.43 1.847l3.853.002c1.056 0 1.992-.661 2.361-1.644l1.796-6.287a2.529 2.529 0 012.43-1.848z"></path></svg>
+                        </div>
+                        <div class="card-title-area">
+                            <h3>Agente de Gastos (Expense Agent)</h3>
+                            <span class="badge badge-copilot">IA Copilot</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Este agente inteligente lee fotos de tickets de los empleados enviadas por correo o subidas a la app, extrae la información contable, detecta duplicados y crea el informe de gastos automáticamente.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 8 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background-color: var(--copilot-bg); color: var(--copilot-purple); border-color: var(--copilot-border);">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                        </div>
+                        <div class="card-title-area">
+                            <h3>Agente de Proveedores (Payables Agent)</h3>
+                            <span class="badge badge-copilot">IA Copilot</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Procesa de forma autónoma la bandeja de entrada para detectar correos electrónicos con facturas de proveedores adjuntas, identificando y pre-registrando el documento en Business Central.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 9 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background-color: var(--copilot-bg); color: var(--copilot-purple); border-color: var(--copilot-border);">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12M8.25 17.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-3.75 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
+                        </div>
+                        <div class="card-title-area">
+                            <h3>Bandeja Unificada de Tareas de Agentes</h3>
+                            <span class="badge badge-copilot">IA Copilot</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Un nuevo panel de tareas donde se centralizan las actividades de todos los agentes autónomos de IA. Los usuarios pueden auditar lo que procesan y aprobar los registros pendientes de un vistazo.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 10 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background-color: var(--copilot-bg); color: var(--copilot-purple); border-color: var(--copilot-border);">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+                        </div>
+                        <div class="card-title-area">
+                            <h3>KPIs e Insights de Producto</h3>
+                            <span class="badge badge-copilot">IA Copilot</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Copilot añade un widget interactivo en el análisis de inventario que genera de forma automática resúmenes sobre la rotación de los productos y calcula KPIs de rendimiento comercial avanzados.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 11 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background-color: var(--copilot-bg); color: var(--copilot-purple); border-color: var(--copilot-border);">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+                        </div>
+                        <div class="card-title-area">
+                            <h3>Diseño de Agentes Personalizados</h3>
+                            <span class="badge badge-copilot">Desarrollo</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Llega el Agent Designer para que los consultores y administradores diseñen, prototipen y desplieguen agentes de IA propios adaptados a los flujos del cliente en Business Central.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 12 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background-color: var(--copilot-bg); color: var(--copilot-purple); border-color: var(--copilot-border);">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+                        </div>
+                        <div class="card-title-area">
+                            <h3>Conexión a Centro de Admin por MCP</h3>
+                            <span class="badge badge-copilot">Seguridad</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Conexión segura de agentes de IA con el Centro de Administración a través de un servidor MCP (Model Context Protocol), asegurando la auditoría de cada acción que realiza la IA.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 13 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>APIs de Seguridad y Auditoría</h3>
+                            <span class="badge badge-platform">Plataforma</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Nuevas APIs específicas para que los auditores analicen de forma automatizada los flujos de aprobación y los permisos de usuario entre las distintas aplicaciones instaladas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña 3: Infraestructura y Rendimiento -->
+        <div id="infrastructure" class="tab-content">
+            <div class="news-grid">
+                <!-- Novedad 14 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Almacenamiento Externo de Adjuntos</h3>
+                            <span class="badge badge-platform">Administración</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Permite guardar archivos y PDF adjuntos de facturas, clientes, etc., fuera de la base de datos de Business Central en un almacenamiento externo. Esto reduce drásticamente los costes del tenant.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 15 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Informes de Balance más rápidos</h3>
+                            <span class="badge badge-platform">Rendimiento</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Los informes de diferimientos y de balance de comprobación (Sumas y Saldos) se han rediseñado internamente. Se ejecutan notablemente más rápido y son más fluidos en grandes volúmenes.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 16 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Ciclo de Vida de Diseños de Informe</h3>
+                            <span class="badge badge-platform">Administración</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Mejoras de gobernanza para reportes: permite configurar diseños de informe en estado Borrador, Activo u Obsoleto para evitar que los usuarios impriman formatos desactualizados.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 17 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Idioma predeterminado por empresa</h3>
+                            <span class="badge badge-platform">Configuración</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Permite configurar a nivel de empresa un idioma de documentos por defecto, simplificando la emisión masiva de facturas e informes a clientes nacionales o internacionales sin configuraciones por registro.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 18 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Integración con Outlook Renovada</h3>
+                            <span class="badge badge-platform">Productividad</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Permite añadir y guardar contactos comerciales a Business Central de forma directa e interactiva desde la interfaz web de Outlook en el flujo de trabajo.</p>
+                    </div>
+                </div>
+
+                <!-- Novedad 19 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"/></svg></div>
+                        <div class="card-title-area">
+                            <h3>Migración Cloud Directa de SQL</h3>
+                            <span class="badge badge-platform">Migración</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Herramientas avanzadas que facilitan la migración a Business Central Cloud a partir de cualquier origen de datos SQL Server local, automatizando gran parte de la correspondencia de tablas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña 4: Ciclo de Vida y Glosario -->
+        <div id="lifecycle" class="tab-content">
+            <!-- Bloque Cambios Obligatorios y Deprecaciones -->
+            <div style="margin-bottom: 2.5rem;">
+                <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem;">
+                    Características Obligatorias y Desuso
+                </h2>
+                <div class="news-grid">
+                    <div class="news-card" style="border-left: 3px solid var(--danger);">
+                        <div class="card-header">
+                            <div class="card-icon" style="background-color: var(--danger-bg); color: var(--danger); border-color: var(--danger-border);">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+                            </div>
+                            <div class="card-title-area">
+                                <h3>Nueva Experiencia de Precios Obligatoria</h3>
+                                <span class="badge badge-mandatory">Obligatorio</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>El antiguo motor de precios ha sido eliminado definitivamente. La Nueva Experiencia de Precios es ahora la única disponible. Requiere homologación de tarifas y configuraciones heredadas.</p>
+                        </div>
+                    </div>
+
+                    <div class="news-card" style="border-left: 3px solid var(--warning);">
+                        <div class="card-header">
+                            <div class="card-icon" style="background-color: var(--warning-bg); color: var(--warning); border-color: var(--warning-border);">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0h19.5"/></svg>
+                            </div>
+                            <div class="card-title-area">
+                                <h3>Acceso MCP Server Activado por Defecto</h3>
+                                <span class="badge badge-warning-custom">Obligatorio</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>La característica opcional para el acceso al servidor MCP se activa por defecto para toda la plataforma y no surte efecto desactivarla de la configuración de Feature Management.</p>
+                        </div>
+                    </div>
+
+                    <div class="news-card" style="border-left: 3px solid var(--danger);">
+                        <div class="card-header">
+                            <div class="card-icon" style="background-color: var(--danger-bg); color: var(--danger); border-color: var(--danger-border);">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+                            </div>
+                            <div class="card-title-area">
+                                <h3>Deprecación de Legacy Workflows y Correo</h3>
+                                <span class="badge badge-mandatory">Desuso</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Desaparición de los antiguos motores de envío de email y flujos de aprobación antiguos. Se migra obligatoriamente al nuevo módulo de correo de plataforma y flujos avanzados basados en Power Automate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Glosario ES -->
+            <div class="translations-section">
+                <h2>Glosario Oficial de Traducciones (Localización ES)</h2>
+                <p>
+                    Microsoft ha consolidado y cambiado la traducción en español de varios términos clave del estándar de Business Central para adaptarlos mejor a la nomenclatura contable moderna y a la unificación con otros sistemas de Dynamics 365:
+                </p>
+                <div class="table-responsive">
+                    <table class="glossary-table">
+                        <thead>
+                            <tr>
+                                <th>Término Anterior (Obsoleto)</th>
+                                <th>Nuevo Término Estándar (v28)</th>
+                                <th>Equivalente en Inglés (AL Code)</th>
+                                <th>Implicación Funcional</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="term-old">Trabajos</span></td>
+                                <td><span class="term-new">Proyectos</span></td>
+                                <td><code>Jobs / Job Queue</code></td>
+                                <td>Cambio total en la barra de navegación, menús e informes para toda la interfaz de usuario.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="term-old">Tareas de trabajo</span></td>
+                                <td><span class="term-new">Líneas de tarea de proyecto</span></td>
+                                <td><code>Job Tasks</code></td>
+                                <td>Unificación de términos dentro de la ficha de proyecto y sus líneas de desglose.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="term-old">Hojas de horas</span></td>
+                                <td><span class="term-new">Partes de horas</span></td>
+                                <td><code>Time Sheets</code></td>
+                                <td>Adaptación lingüística al término más utilizado en las empresas españolas para el reporte de horas.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="term-old">Diarios</span></td>
+                                <td><span class="term-new">Secciones de diario</span></td>
+                                <td><code>Gen. Journal Batches</code></td>
+                                <td>Aclaración visual de las plantillas contables previas al registro de asientos.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner de Formación al final -->
+        <div class="training-banner">
+            <h2>¿Desea dominar estas novedades?</h2>
+            <p>Ofrecemos formación personalizada e informativa para usted y su equipo. Seleccione los temas de interés y le prepararemos una sesión adaptada.</p>
+            <a href="formacion.html" target="_blank" class="btn-main">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                Solicitar Formación Personalizada
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2026 Auba Dynamic Consulting Solutions. Todos los derechos reservados.</p>
+        <p>Desarrollado y preparado con la documentación oficial del Partner Center de Microsoft Dynamics 365.</p>
+    </footer>
+
+    <script>
+        // Lógica de Pestañas
+        function openTab(evt, tabId) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            const targetElement = document.getElementById(tabId);
+            if (targetElement) {
+                targetElement.classList.add("active");
+            }
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>

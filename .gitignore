@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Scratch & Temporary
+scratch_*.py
+scratch_*.json
+scratch/
+read_user_messages.py
+favicon_b64.txt
+reporte_semanal_correo_preview.html
+reporte_semanal_correo.html
+data/kb_cache/
+all_titles.json
+en_titles.json
+
+# OS & Backups
+Thumbs.db
+Desktop.ini
+*.bak
+*_backup.html
+
+novedades-bc-v28/
+reporte_novedades_bc28.html
